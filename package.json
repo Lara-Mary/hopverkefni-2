@@ -1,0 +1,35 @@
+{
+  "name": "vef1-2024-h2",
+  "version": "1.0.0",
+  "description": "hópverkefni 2",
+  "main": "index.js",
+  "scripts": {
+    "browser-sync": "browser-sync start --server --files ./src/ styles.css index.html",
+    "sass": "sass styles.scss styles.css",
+    "sass-watch": "sass *.scss styles.css --watch",
+    "dev": "concurrently npm:sass-watch npm:browser-sync",
+    "copy:html": "cpy ./*.html ./build/",
+    "copy:css": "cpy ./*.css ./build/",
+    "copy:js": "cpy ./src ./build/",
+    "build": "concurrently npm:copy:*",
+    "eslint": "eslint ./src",
+    "stylelint": "stylelint styles.scss",
+    "lint": "concurrently npm:eslint npm:stylelint",
+    "prettier": "prettier --write ."
+  },
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "@eslint/js": "^9.14.0",
+    "browser-sync": "^3.0.3",
+    "concurrently": "^9.1.0",
+    "cpy-cli": "^5.0.0",
+    "eslint": "^9.14.0",
+    "globals": "^15.12.0",
+    "prettier": "^3.3.3",
+    "sass": "^1.80.6",
+    "stylelint": "^16.10.0",
+    "stylelint-config-sass-guidelines": "^12.1.0",
+    "stylelint-config-standard": "^36.0.1"
+  }
+}
