@@ -21,7 +21,7 @@ export async function renderSubpage(root, indexJson, type) {
     const contentJson = await fetcher(contentJsonFile);
 
     const content = contentJson.content;
-    const contentElement = document.createElement('div');
+    const contentElement = el('div', {class: 'contentWrapper'})
 
     // TODO ættum að skoða html structure hér
     for (const item of content) {
@@ -44,7 +44,7 @@ export async function renderSubpage(root, indexJson, type) {
       contentElement.appendChild(itemElement);
     }
 
-    mainElement = el('main', {}, el('p', {}, contentElement));
+    mainElement = el('main', {}, contentElement);
   }
 
   const footerElement = el('footer', {}, indexJson.footer);

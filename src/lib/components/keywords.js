@@ -7,7 +7,7 @@ export function renderKeywords(indexJson, contentJson) {
   const titleElement = el('h2', {}, contentJson.title);
   wrapperElement.appendChild(titleElement);
 
-  const keywordsElement = el('div', {});
+  const keywordsElement = el('div', {class: 'keywordsWrapper'});
 
   for (const item of contentJson.keywords) {
     const keywordItemElement = el('div', {});
