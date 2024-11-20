@@ -19,5 +19,24 @@ export function renderKeywords(indexJson, contentJson) {
     ),
   );
 
-  return mainElement;
+  const wrapperElement = el('main', {});
+  const titleElement = el('h2', {}, contentJson.title);
+  wrapperElement.appendChild(titleElement);
+
+  const keywordsElement = el('div', {});
+
+  for (const item of contentJson.keywords) {
+    const keywordItemElement = el('div', {});
+    const keywordTitleElement = el('h3', {}, item.title);
+    const keywordPElement = el('p', {}, item.content);
+
+    keywordItemElement.appendChild(keywordTitleElement);
+    keywordItemElement.appendChild(keywordPElement);
+
+    keywordsElement.appendChild(keywordItemElement);
+  }
+
+  wrapperElement.appendChild(keywordsElement);
+  
+  return wrapperElement;
 }
