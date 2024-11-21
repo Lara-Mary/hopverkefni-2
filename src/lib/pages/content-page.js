@@ -1,4 +1,5 @@
 import { renderKeywords } from '../components/keywords.js';
+import { renderQuestions } from '../components/questions.js';
 import { renderNavigation } from '../components/navigation.js';
 import { el } from '../elements.js';
 import { fetcher } from '../fetcher.js';
@@ -17,6 +18,9 @@ export async function renderContentPage(root, indexJson, type, content) {
   if(content === 'keywords') {
     mainElement = renderKeywords(indexJson, contentJson);
   }
+  else if (content === 'questions') {
+    mainElement = renderQuestions(indexJson, contentJson);
+  }
   else {
     mainElement = el(
       'main',
@@ -34,6 +38,8 @@ export async function renderContentPage(root, indexJson, type, content) {
       ),
     );
   }
+
+
 
   const footerElement = el('footer', {}, indexJson.footer);
 
