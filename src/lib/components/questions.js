@@ -15,7 +15,10 @@ export function renderQuestions(indexJson, contentJson) {
     
     const answersElement = el ('ul', {class: 'answersList'});
     for (const answer of item.answers) {
-        const answerItemElement = el('li', {class: answer.correct ? 'correctAnswer' : 'incorrectAnswer'}, answer.answer);
+       const answerClass = answer.correct ? 'correctAnswer' : 'incorrectAnswer';
+       const answerItemElement = el ('li' ,{class: answerClass, style: answer.correct ? 'font-weight: bold' : '',} ,
+        answer.answer
+       );
 
         answersElement.appendChild(answerItemElement);
     }
