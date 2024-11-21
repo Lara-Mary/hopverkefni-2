@@ -15,7 +15,7 @@ html {
 
 :root {
   --spacing: 1rem;
-  --max-width: 56rem;
+  --max-width: 1200px;
 
   --font-size-button: 1rem;
   --font-family: -system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI',
@@ -23,6 +23,10 @@ html {
 
   --color-light-gray: #f5f5f5;
   --color-background-zebra: var(--color-light-gray);
+
+  --border-regular: 1px solid #000;
+  --border-width: 1px;
+  --border-radius-regular: 5px;
 }
 
 .hidden {
@@ -42,17 +46,75 @@ button {
 }
 
 button {
-  padding: 0.25rem 0.5rem;
+  display: inline-block;
+  padding: calc(var(--spacing) * 0.5) var(--spacing);
+  border: var(--border-regular);
+  border-radius: var(--border-radius-regular);
+  border-width: var(--border-width);
+
+
+  font-size: 1rem;
+  text-decoration: none;
+  background-color: #f5f5f5;
+
 }
 
 #root {
   display: flex;
   flex-direction: column;
   gap: var(--spacing);
+  align-items: center;
 
   margin: var(--spacing) auto;
   padding-inline: var(--spacing);
   max-width: var(--max-width);
 }
 
-/*# sourceMappingURL=styles.css.map */
+.keywordsWrapper > div {
+  padding: var(--spacing);
+}
+
+.contentWrapper > section {
+  padding: var(--spacing);
+}
+
+.contentWrapper > section > div {
+  padding: var(--spacing) 0;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+header {
+  text-align: center;
+  padding: var(--spacing) calc(var(--spacing) * 1.5);
+}
+
+header h1 {
+  margin-bottom: var(--spacing);
+}
+
+nav {
+  width: 100%;
+}
+
+nav ul {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: var(--spacing);
+
+  list-style: none;
+}
+
+nav ul li {
+  margin-bottom: calc(var(--spacing) / 2);
+  text-align: left;
+}
+
+footer {
+  text-align: center;
+  padding: var(--spacing) calc(var(--spacing) * 1.5);
+}

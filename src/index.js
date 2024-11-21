@@ -18,7 +18,7 @@ async function render(root, querystring) {
   }
 
   if (content) {
-    return renderContentPage(root, mainIndexJson);
+    return renderContentPage(root, mainIndexJson, type, content);
   }
 
   renderSubpage(root, mainIndexJson, type);

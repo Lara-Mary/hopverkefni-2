@@ -21,27 +21,22 @@ export async function renderSubpage(root, indexJson, type) {
     const contentJson = await fetcher(contentJsonFile);
 
     const content = contentJson.content;
-    const contentElement = document.createElement('div');
+    const contentElement = el('div', {class: 'contentWrapper'})
 
     // TODO ættum að skoða html structure hér
     for (const item of content) {
       const itemElement = document.createElement('section');
-
+      
+      const href = window.location.search + `&content=${item.slug}`;
+      console.log('content href', href);
+      
       const button = document.createElement('button');
-      button.textContent = item.title;
+      const link = el('a', { href }, item.title);
+      button.appendChild(link);
       itemElement.appendChild(button);
-      button.addEventListener('click', (e) => {
-        if (!e) {
-          return;
-        }
-
-        const contentDiv = e?.target?.parentElement?.querySelector('div');
-        contentDiv.classList.toggle('hidden');
-      });
 
       const itemText = document.createElement('div');
       itemText.textContent = item.text;
-      itemText.classList.add('hidden');
 
       itemElement.appendChild(button);
       itemElement.appendChild(itemText);
@@ -49,7 +44,7 @@ export async function renderSubpage(root, indexJson, type) {
       contentElement.appendChild(itemElement);
     }
 
-    mainElement = el('main', {}, el('p', {}, contentElement));
+    mainElement = el('main', {}, contentElement);
   }
 
   const footerElement = el('footer', {}, indexJson.footer);
