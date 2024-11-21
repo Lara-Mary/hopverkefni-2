@@ -18,6 +18,7 @@ export async function renderContentPage(root, indexJson, type, content) {
   if(content === 'keywords') {
     mainElement = renderKeywords(indexJson, contentJson);
   }
+
   else if (content === 'questions') {
     mainElement = renderQuestions(indexJson, contentJson);
   }
@@ -38,8 +39,6 @@ export async function renderContentPage(root, indexJson, type, content) {
       ),
     );
   }
-
-
 
   const footerElement = el('footer', {}, indexJson.footer);
 
