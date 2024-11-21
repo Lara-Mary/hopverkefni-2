@@ -35,6 +35,5 @@
       "title": "Truthy og falsy",
       "content": "Þegar við nýtum _type coercion_ til að fá gildi til að haga sér eins og boolean gildi, falsy gildi eru false, 0, '', null, undefined, NaN og truthy gildi eru öll önnur gildi."
     }
-   
   ]
 }
