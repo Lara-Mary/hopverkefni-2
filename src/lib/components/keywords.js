@@ -1,18 +1,18 @@
-import { el } from '../elements.js';
+import { el } from "../elements.js";
 
 export function renderKeywords(indexJson, contentJson) {
-  console.log('rendering keywords page');
+  console.log("rendering keywords page");
 
-  const wrapperElement = el('main', {});
-  const titleElement = el('h2', {}, contentJson.title);
+  const wrapperElement = el("main", {});
+  const titleElement = el("h2", {}, contentJson.title);
   wrapperElement.appendChild(titleElement);
 
-  const keywordsElement = el('div', {class: 'keywordsWrapper'});
+  const keywordsElement = el("div", { class: "keywords-wrapper" });
 
   for (const item of contentJson.keywords) {
-    const keywordItemElement = el('div', {});
-    const keywordTitleElement = el('h3', {}, item.title);
-    const keywordPElement = el('p', {}, item.content);
+    const keywordItemElement = el("div", {});
+    const keywordTitleElement = el("h3", {}, item.title);
+    const keywordPElement = el("p", {}, item.content);
 
     keywordItemElement.appendChild(keywordTitleElement);
     keywordItemElement.appendChild(keywordPElement);
@@ -21,6 +21,6 @@ export function renderKeywords(indexJson, contentJson) {
   }
 
   wrapperElement.appendChild(keywordsElement);
-  
+
   return wrapperElement;
 }
