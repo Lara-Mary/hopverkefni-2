@@ -1,5 +1,3 @@
-/* CSS kóði til að bæta útlit fyrir lectures */
-
 * {
   margin: 0;
   padding: 0;
@@ -63,9 +61,23 @@ main {
   margin: var(--spacing) auto;
   padding-inline: var(--spacing);
   max-width: var(--max-width);
+  position: relative; 
+}
+
+h2{ 
+  align-self: center; 
+  margin-top: var(--spacing); 
+  text-align: center; 
 }
 
 .keywordsWrapper > div {
+  padding: var(--spacing);
+}
+.questionsWrapper > div {
+  padding: var(--spacing);
+}
+
+.content-wrapper > section {
   padding: var(--spacing);
 }
 
@@ -77,6 +89,7 @@ main {
   max-width: var(--max-width);
   padding: var(--spacing);
 }
+
 
 .lectureItem {
   padding: calc(var(--spacing) * 1);
@@ -134,8 +147,49 @@ nav ul li {
   text-align: left;
   list-style: none;
 }
+.questionItem ul li {
+  display: flex;
+  gap: var(--spacing);
+  margin:calc(var(--spacing) / 2);
+}
 
 footer {
   text-align: center;
   padding: var(--spacing) calc(var(--spacing) * 1.5);
 }
+
+@media (min-width: 768px) {
+  :root {
+    --spacing: 1.5rem; 
+  }
+
+  main {
+    flex-direction: column;
+    justify-content: center;
+  }
+
+  button {
+    font-size: 1.25rem;
+  }
+}
+
+@media (min-width: 1200px) {
+  :root {
+    --base-font-size: 18px; 
+    --spacing: 2rem;
+    --max-width: 1600px;
+  }
+
+  main {
+    padding-inline: calc(var(--spacing) * 2);
+  }
+
+  header {
+    padding: calc(var(--spacing) * 1.5) calc(var(--spacing) * 2);
+  }
+
+  footer {
+    padding: calc(var(--spacing) * 1.5) calc(var(--spacing) * 2);
+  }
+}
+

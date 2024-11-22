@@ -1,8 +1,10 @@
 import { renderKeywords } from '../components/keywords.js';
+import { renderQuestions } from '../components/questions.js';
 import { renderNavigation } from '../components/navigation.js';
 import { el } from '../elements.js';
 import { fetcher } from '../fetcher.js';
-import { renderLectures } from '../components/lectures.js'; 
+import { renderLectures } from '../components/lectures.js';
+
 
 export async function renderContentPage(root, indexJson, type, content) {
   console.log('rendering content page', root, indexJson.title);
@@ -14,29 +16,30 @@ export async function renderContentPage(root, indexJson, type, content) {
   headerElement.appendChild(renderNavigation(indexJson.navigation));
 
   let mainElement;
-
-  if(content === 'keywords') {
+if (content === 'keywords') {
     mainElement = renderKeywords(indexJson, contentJson);
-  } else if (content === 'lectures') {
-    mainElement = renderLectures(indexJson, contentJson); 
-  }
-  else {
+} else if (content === 'questions') {
+    mainElement = renderQuestions(indexJson, contentJson);
+} else if (content === 'lectures') {
+    mainElement = renderLectures(indexJson, contentJson);
+} else {
     mainElement = el(
-      'main',
-      {},
-      el(
-        'section',
-        {}, 
-        el('p', {}, indexJson.description),
+        'main',
+        {},
         el(
-          'p',
-          {},
-          'Ég er content page, þetta er contentið mitt' +
-            JSON.stringify(contentJson),
+            'section',
+            {},
+            el('p', {}, indexJson.description),
+            el(
+                'p',
+                {},
+                'Ég er content page, þetta er contentið mitt' +
+                JSON.stringify(contentJson),
+            ),
         ),
-      ),
     );
-  }
+}
+
 
   const footerElement = el('footer', {}, indexJson.footer);
 
