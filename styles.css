@@ -5,25 +5,22 @@
 
 html {
   box-sizing: border-box;
-  font-family: var(--font-family);
-  padding: var(--spacing);
 }
 
 *,
-*::before,
-*::after {
+*:before,
+*:after {
   box-sizing: inherit;
 }
 
 :root {
   --spacing: 1rem;
   --max-width: 1200px;
+
   --font-size-button: 1rem;
-  --font-family: -system-ui, -apple-system, blinkmacsystemfont, "Segoe UI",
-    roboto, oxygen, ubuntu, cantarell, "Open Sans", "Helvetica Neue", sans-serif;
-  --color-light-gray: #f5f5f5;
-  --color-background-zebra: var(--color-light-gray);
-  --border-regular: 1px solid #000;
+  --font-family: -system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI',
+    Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+
   --border-width: 1px;
   --border-radius-regular: 5px;
 }
@@ -31,6 +28,11 @@ html {
 .hidden {
   /* Viljum að þetta feli alltaf element, notum því !important */
   display: none !important;
+}
+
+html {
+  font-family: var(--font-family);
+  padding: var(--spacing);
 }
 
 input,
@@ -42,9 +44,9 @@ button {
 button {
   display: inline-block;
   padding: calc(var(--spacing) * 0.5) var(--spacing);
-  border: var(--border-regular);
   border-radius: var(--border-radius-regular);
   border-width: var(--border-width);
+
   font-size: 1rem;
   text-decoration: none;
   background-color: #f5f5f5;
@@ -55,6 +57,7 @@ main {
   flex-direction: column;
   gap: var(--spacing);
   align-items: center;
+
   margin: var(--spacing) auto;
   padding-inline: var(--spacing);
   max-width: var(--max-width);
@@ -67,10 +70,9 @@ h2{
   text-align: center; 
 }
 
-.keywords-wrapper > div {
+.keywordsWrapper > div {
   padding: var(--spacing);
 }
-
 .questionsWrapper > div {
   padding: var(--spacing);
 }
@@ -79,8 +81,38 @@ h2{
   padding: var(--spacing);
 }
 
-.content-wrapper > section > div {
-  padding: var(--spacing) 0;
+.lecturesWrapper {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing);
+  margin: var(--spacing) auto;
+  max-width: var(--max-width);
+  padding: var(--spacing);
+}
+
+
+.lectureItem {
+  padding: calc(var(--spacing) * 1);
+  border-radius: var(--border-radius-regular);
+  margin-bottom: calc(var(--spacing) * 0.75);
+}
+
+.lectureItem h3 {
+  margin-bottom: calc(var(--spacing) * 0.5);
+  font-size: 1.5rem;
+}
+
+.lectureItem p {
+  line-height: 1.4;
+  margin-bottom: calc(var(--spacing) * 0.5);
+}
+
+.contentWrapper > section {
+  padding: calc(var(--spacing) * 0.5);
+}
+
+.contentWrapper > section > div {
+  padding: calc(var(--spacing) * 0.25) 0;
 }
 
 a {
@@ -106,12 +138,14 @@ nav ul {
   flex-wrap: wrap;
   justify-content: center;
   gap: var(--spacing);
+
   list-style: none;
 }
 
 nav ul li {
   margin-bottom: calc(var(--spacing) / 2);
   text-align: left;
+  list-style: none;
 }
 .questionItem ul li {
   display: flex;
