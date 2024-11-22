@@ -53,3 +53,4 @@ export async function renderSubpage(root, indexJson, type) {
   root.appendChild(mainElement);
   root.appendChild(footerElement);
 }
+

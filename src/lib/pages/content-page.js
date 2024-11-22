@@ -38,7 +38,7 @@ export async function renderContentPage(root, indexJson, type, content) {
     );
   }
 
-  const footerElement = el('footer', {}, indexJson.footer);
+  const footerElement = el("footer", {}, indexJson.footer);
 
   root.appendChild(headerElement);
   root.appendChild(mainElement);
