@@ -1,26 +1,31 @@
-import { el } from '../elements.js';
+import { el } from "../elements.js";
 
 export function renderQuestions(indexJson, contentJson) {
-  console.log('rendering questions page');
+  console.log("rendering questions page");
 
-  const wrapperElement = el('main', {});
-  const titleElement = el('h2', {}, contentJson.title);
+  const wrapperElement = el("main", {});
+  const titleElement = el("h2", {}, contentJson.title);
   wrapperElement.appendChild(titleElement);
 
-  const questionsElement = el('div', {class: 'questionsWrapper'});
+  const questionsElement = el("div", { class: "questions-wrapper" });
 
   for (const item of contentJson.questions) {
-    const questionItemElement = el('div', { class: 'questionItem'});
-    const questionTitleElement = el('h3', {}, item.question);
-    
-    const answersElement = el ('ul', {class: 'answersList'});
-    for (const answer of item.answers) {
-       const answerClass = answer.correct ? 'correctAnswer' : 'incorrectAnswer';
-       const answerItemElement = el ('li' ,{class: answerClass, style: answer.correct ? 'font-weight: bold' : '',} ,
-        answer.answer
-       );
+    const questionItemElement = el("div", { class: "question-item" });
+    const questionTitleElement = el("h3", {}, item.question);
 
-        answersElement.appendChild(answerItemElement);
+    const answersElement = el("ul", { class: "answersList" });
+    for (const answer of item.answers) {
+      const answerClass = answer.correct ? "correctAnswer" : "incorrectAnswer";
+      const answerItemElement = el(
+        "li",
+        {
+          class: answerClass,
+          style: answer.correct ? "font-weight: bold" : "",
+        },
+        answer.answer,
+      );
+
+      answersElement.appendChild(answerItemElement);
     }
 
     questionItemElement.appendChild(questionTitleElement);
@@ -30,6 +35,6 @@ export function renderQuestions(indexJson, contentJson) {
   }
 
   wrapperElement.appendChild(questionsElement);
-  
+
   return wrapperElement;
 }
